@@ -43,6 +43,7 @@ class PostDeleteView(LoginRequiredMixin,DeleteView):
 class DraftListView(LoginRequiredMixin,ListView):
     login_url = 'accounts/login/'
     model = Post
+    template_name = 'post_draft_list.html'
 
     def get_queryset(self):
         return Post.objects.filter(published_date__isnull=True).order_by('create_date')
