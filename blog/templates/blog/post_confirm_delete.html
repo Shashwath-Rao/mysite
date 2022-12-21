@@ -1,0 +1,15 @@
+{% extends "blog/base.html" %}
+{% block content %}
+  <form method="post">
+    {% csrf_token %}
+    <div class="jumbotron" style="background: transparent">
+    <p>Are you sure you want to delete {{object}}?</p>
+    <input type="submit" class="btn btn-danger" value="Confirm">
+    </div>
+    <style>
+      .col-md-8{
+        height: 170px;
+      }
+    </style>
+  </form>
+{% endblock %}

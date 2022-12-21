@@ -1,0 +1,28 @@
+{% extends "blog/base.html" %}
+{% block content %}
+ <div class="container">
+   <h1>Sign Up</h1><br>
+   <form method="post">
+     {% csrf_token %}
+     <div class="form-group">
+     {% for forms in form %}
+       {{forms.errors}}
+       {% if not forms.help_text %}
+       <br><br>
+       {% endif %}
+       {{ forms.label }}: &nbsp;
+       {{ forms }}
+       <br>
+       {% if forms.help_text %}
+       {{ forms.help_text|safe}}
+       {% else %}
+       Enter valid e-mail address
+       <br>
+       <br>
+       {% endif %}
+       {% endfor %}
+     </div>
+     <input type="submit" class="btn btn-primary" value="Sign Up">
+   </form>
+ </div>
+{% endblock %}
